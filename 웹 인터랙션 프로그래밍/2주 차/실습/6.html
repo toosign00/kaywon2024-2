@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toast {
+            visibility: hidden;
+            opacity: 0;
+            width: 300px;
+            height: 0;
+            background: palegoldenrod;
+            font-size: 20px;
+            transition: all .8s;
+        }
+
+        .toast.active {
+            visibility: visible;
+            height: 100px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="pop">pop</button>
+    <button class="close">close</button>
+    <div class="toast">안녕</div>
+
+    <script>
+        // let popBtn = document.querySelector('.pop');
+        // let closeBtn = document.querySelector('.close');
+        // let toast = document.querySelector('.toast');
+
+        // popBtn.addEventListener('click', () => {
+        //     toast.classList.add('active');
+        // });
+
+        // closeBtn.addEventListener('click', () => {
+        //     toast.classList.remove('active');
+        // });
+
+        document.querySelector('.pop').addEventListener('click', () =>{
+            document.querySelector('.toast').classList.add('active');
+        });
+
+        document.querySelector('.close').addEventListener('click', () => {
+            document.querySelector('.toast').classList.remove('active');
+        });
+    </script>
+</body>
+
+</html>

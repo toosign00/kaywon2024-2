@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="이름을 입력하세요">
+    <button>로그인</button>
+    <h1></h1>
+
+    <script>
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+        const h1 = document.querySelector('h1');
+
+        btn.addEventListener('click', () => {
+
+            let name = input.value;
+
+            if (name.length < 2) {
+                alert('이름을 2글자 이상 입력해주세요.');
+                return;
+            }
+
+            h1.innerHTML = `안녕하세요 ${input.value}님, 돌아오신 것을 환영합니다.`;
+        });
+
+
+        input.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+
+                if (input.value.length < 2) {
+                    alert('이름을 2글자 이상 입력해주세요.');
+                    return;
+                }
+
+                h1.innerHTML = `안녕하세요 ${input.value}님, 돌아오신 것을 환영합니다.`;
+            }
+        })
+    </script>
+</body>
+
+</html

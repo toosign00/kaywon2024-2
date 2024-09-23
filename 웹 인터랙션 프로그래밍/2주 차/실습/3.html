@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스 크기 바꾸기</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            transition: all 1s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box"></div>
+    <button id="color-btn">색상을 바꾸는 버튼</button>
+    <button id="width-btn">width를 바꾸는 버튼</button>
+
+    <script>
+        let box = document.querySelector('.box');
+        let widthBtn = document.querySelector('#width-btn');
+
+        widthBtn.addEventListener('click', function changeWidth() {
+
+            let widthNum = prompt('너비를 입력해주세요');
+
+            if (widthNum === null) return;
+
+            if (widthNum === null || isNaN(widthNum)) {
+                alert('숫자를 입력해주세요');
+                changeWidth();
+                return;
+            }
+            if (widthNum < 0) {
+                alert('0보다 큰 숫자를 입력해주세요');
+                changeWidth();
+                return;
+            }
+
+            box.style.width = `${widthNum}px`;
+        });
+
+        let colorBtn = document.querySelector('#color-btn');
+
+        colorBtn.addEventListener('click', () => {
+            let color = prompt('색상을 입력해주세요');
+
+            box.style.backgroundColor = color;
+        });
+    </script>
+</body>
+
+</html>
