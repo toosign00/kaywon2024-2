@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step animation 실습 (500x500 box)</title>
+    <style>
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            background: url('./img/step.png') no-repeat;
+            background-size: 2500px 500px;
+            animation: gif 0.5s infinite steps(5), run 10s linear infinite;
+        }
+
+        @keyframes gif {
+            100% {
+                background-position: -2500px 0;
+            }
+        }
+
+        @keyframes run {
+            0% {
+                left: -500px;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <input type="range" class="fast" min="2" max="20" step="2">빠르기
+    <script>
+        const box = document.querySelector('.box');
+        const fast = document.querySelector('.fast');
+
+        fast.addEventListener('input', () => {
+            const speed = 22 - fast.value;
+            box.style.animation = `gif 0.5s infinite steps(5), run ${speed}s linear infinite`;
+            console.log(speed);
+        });
+    </script>
+</body>
+
+</html>
