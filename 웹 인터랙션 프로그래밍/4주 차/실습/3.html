@@ -5,6 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(252, 234, 201);
+        }
+
+        ul {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            list-style: none;
+            border-left: 5px solid #000;
+        }
+        
+        li {
+            opacity: 0;
+            position: relative;
+            padding: 70px 0;
+            font-weight: bold;
+            transition: all 1.5s ease-out;
+        }
+
+        li:nth-child(odd) {
+            left: 50px;
+        }
+
+        li:nth-child(even) {
+            left: -100px;
+        }
+
+        li.show {
+            animation: show .5s ease-in-out forwards;
+        }
+
+        @keyframes show {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +74,25 @@
         <li>2025</li>
     </ul>
 
+    <script>
+        const times = document.querySelectorAll('li');
+
+        const observer = new IntersectionObserver((sections) => {
+            sections.forEach(section => {
+                if (section.isIntersecting) {
+                    section.target.classList.add('show');
+                } else {
+                    section.target.classList.remove('show');
+                }
+            });
+        }, {threshold: 0.5});
+        
+
+        times.forEach(time => {
+            observer.observe(time);
+        });
+        
+    </script>
 </body>
 
 </html>
