@@ -1,0 +1,1 @@
+<p>4주 차 수업에서는 css 애니메이션, step 애니메이션, observer을 이용한 스크롤 이벤트 그리고 mouse / keyboard 이벤트 타입을 학습하였습니다.</p>
