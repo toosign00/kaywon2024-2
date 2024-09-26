@@ -23,7 +23,7 @@
             left: 170px;
             width: 160px;
             height: 160px;
-            background: url('./실습/img/img_loading.svg') no-repeat center center / cover;
+            background: url('./img/img_loading.svg') no-repeat center center / cover;
             border-radius: 50%;
             z-index: 2;
             animation: jump .5s cubic-bezier(.17, .67, .32, .99) infinite alternate;
@@ -185,10 +185,10 @@
             item.addEventListener('click', () => {
                 if (item.value === 'light') {
                     loading.style.background = 'skyblue';
-                    imgChar.style.background = 'url("./실습/img/img_loading.svg") no-repeat center center / cover';
+                    imgChar.style.background = 'url("./img/img_loading.svg") no-repeat center center / cover';
                 } else {
                     loading.style.background = '#222';
-                    imgChar.style.background = 'url("./실습/img/img_loading_b.svg") no-repeat center center / cover';
+                    imgChar.style.background = 'url("./img/img_loading_b.svg") no-repeat center center / cover';
                 }
             })
         });
