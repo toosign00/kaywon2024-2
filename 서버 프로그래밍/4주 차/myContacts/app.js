@@ -30,9 +30,10 @@ app.put("/contacts/:id", (req, res) => {
 });
 
 // 연락처 삭제하기
-app.delete("content/:id", (req, res) => {
+app.delete("/content/:id", (req, res) => {
     res.status(200).send(`Delate Contact for ID: ${req.params.id}`);
-})
+});
+
 // 서버 실행
 app.listen(port, () => {
     console.log(`${port}번 포트에서 서버 실행 중`);
