@@ -3,6 +3,32 @@ const app = express();
 const path = require("path");
 const port = 3000;
 
+
+const { MongoClient } = require('mongodb');
+
+let db;
+const url = 'mongodb+srv://toosign:437377@main.vrmnq.mongodb.net/';
+new MongoClient(url).connect().then((client) => {
+    console.log('DB연결성공');
+    db = client.db('myContacts');
+
+    // 서버 실행
+    app.listen(port, () => {
+        console.log(`${port}번 포트에서 서버 실행 중`);
+    });
+
+}).catch((err) => {
+    console.log(err);
+});
+
+app.get("/", () => {
+    db.collection('contact').insertOne({
+        name: '노현수',
+        phone: '010-1234-5678'
+    });
+    console.log('데이터 추가 완료');
+});
+
 const requestTime = (req, res, next) => {
     let today = new Date();
     let now = today.toLocaleTimeString();
@@ -30,7 +56,3 @@ app.use(express.json());
 // contactRoutes.js 파일에서 라우트 설정 불러오기
 app.use("/contacts", require("./routes/contactRoutes"));
 
-// 서버 실행
-app.listen(port, () => {
-    console.log(`${port}번 포트에서 서버 실행 중`);
-});
