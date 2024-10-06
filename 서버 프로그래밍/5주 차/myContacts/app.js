@@ -4,6 +4,20 @@ const path = require("path");
 const port = 3000;
 
 
+
+
+/*
+MongoDB Extension 설치 후 MongoDB 사이트에서 가져온 cluster의 connection string을 입력해도
+myContacts 데이터베이스와 contact 컬렉션이 생성이 안되어서 아래와 같이 코드를 작성하여 
+데이터베이스와 컬렉션을 생성하고, localhost:3000/ 경로로 접속하여 GET 요청을 보내면
+name: '노현수', phone: '010-1234-5678' 데이터가 추가되도록 하였습니다. (데이터가 추가되지 않으면 데이터베이스와 컬렉션이 보이지 않았습니다.)
+그리고 cluster의 Collections와  MongoDB Extension에서 확인 해보니, myContacts 데이터베이스와 contact 컬렉션이 생성되어 있었습니다.
+Document에 .json 형식으로 id, name, phone 데이터가 추가되어 있는 것 또한 확인할 수 있었습니다.
+추후 사용자에게 입력받은 데이터를 추가하도록 수정이 필요해 보입니다.
+코딩애플 node.js 온라인 강의를 참고하여 코드를 작성하였습니다.
+*/
+
+// MongoDB 연결
 const { MongoClient } = require('mongodb');
 
 let db;
