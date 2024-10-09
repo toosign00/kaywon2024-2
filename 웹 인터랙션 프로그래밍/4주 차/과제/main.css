@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(28, 40, 51, 100);
+}
+
+.container {
+    width: 544px;
+    height: 544px;
+    background-color: rgba(28, 40, 51, 100);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 9.6px;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50.5%;
+    background-color: rgba(28, 40, 51, 100);
+    bottom: 0;
+    border-radius: 0 0 9.6px 9.6px;
+}
+
+.rainbow-color {
+    background-color: rgba(28, 40, 51, 100);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    animation: spin 5s infinite;
+    transform-origin: 50% 0;
+}
+
+@keyframes spin {
+    30% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    55% {
+        transform: translate(-50%, -50%) rotate(180deg);
+    }
+
+    85% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.red {
+    height: 180px;
+    width: 360px;
+    border: 20px solid #fd004c;
+    border-top: none;
+    top: calc(50% + 90px);
+    border-radius: 0 0 180px 180px;
+    animation-delay: 1.4s;
+}
+
+.orange {
+    height: 160px;
+    width: 320px;
+    border: 20px solid #fe9000;
+    border-top: none;
+    top: calc(50% + 80px);
+    border-radius: 0 0 160px 160px;
+    animation-delay: 1.2s;
+}
+
+.yellow {
+    height: 140px;
+    width: 280px;
+    border: 20px solid #ffec00;
+    border-top: none;
+    top: calc(50% + 70px);
+    border-radius: 0 0 140px 140px;
+    animation-delay: 1.0s;
+}
+
+.green {
+    height: 120px;
+    width: 240px;
+    border: 20px solid #00a651;
+    border-top: none;
+    top: calc(50% + 60px);
+    border-radius: 0 0 120px 120px;
+    animation-delay: 0.8s;
+}
+
+.blue {
+    height: 100px;
+    width: 200px;
+    border: 20px solid #00a2ff;
+    border-top: none;
+    top: calc(50% + 50px);
+    border-radius: 0 0 100px 100px;
+    animation-delay: 0.6s;
+}
+
+.navy {
+    height: 80px;
+    width: 160px;
+    border: 20px solid #002f6c;
+    border-top: none;
+    top: calc(50% + 40px);
+    border-radius: 0 0 80px 80px;
+    animation-delay: 0.4s;
+}
+
+.purple {
+    height: 60px;
+    width: 120px;
+    border: 20px solid #6f00ff;
+    border-top: none;
+    top: calc(50% + 30px);
+    border-radius: 0 0 60px 60px;
+    animation-delay: 0.2s;
+}
+
+.sun {
+    margin: 120px 70%;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: orange;
+    box-shadow: 0 0 35px 5px yellow, 0 0 25px 10px yellow inset;
+    position: absolute;
+    animation: moveUp 5s cubic-bezier(0.16, 0.45, 0.33, 0.88) infinite;
+    opacity: 0;
+    animation-delay: 0s;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+/* 
+    태양 css https://codepen.io/hsfo3o/pen/BxXjyL 참고
+*/
+
+.big {
+    scale: 1.5;
+}
+@keyframes moveUp {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -120px);
+        opacity: 1;
+    }
+}
+
+.show {
+    animation: moveUp 2s forwards;
+    opacity: 1;
+}
+
+#speedControl {
+    position: absolute;
+    top: 450px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#speedControl::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff5722;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+#speedControl::-webkit-slider-thumb:hover {
+    background: #e64a19;
+}
+
+#speedControl::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #ff5722;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
