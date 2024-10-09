@@ -179,6 +179,7 @@ body {
     background: #ddd;
     border-radius: 5px;
     outline: none;
+    appearance: none;
     -webkit-appearance: none;
 }
 
