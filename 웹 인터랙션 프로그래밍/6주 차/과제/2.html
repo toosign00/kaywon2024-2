@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1000px;
+            height: 500px;
+            border: solid 1px #000;
+            perspective: 400px;
+            perspective-origin: center;
+            animation: flip 1s infinite;
+        }
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.1);
+            transform-origin: center center;
+            text-align: center;
+        }
+
+        .back {
+            transform: translateZ(-100px);
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+
+        .front {
+            transform: translateZ(100px);
+            background: rgba(0, 255, 0, 0.3);
+        }
+
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+            background: rgba(0, 0, 255, 0.3);
+        }
+
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            background: rgba(255, 255, 0, 0.3);
+        }
+
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+            background: rgba(0, 255, 255, 0.3);
+        }
+
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+            background: rgba(255, 0, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="box front"></div>
+        <div class="box back"></div>
+        <div class="box top"></div>
+        <div class="box bottom"></div>
+        <div class="box left"></div>
+        <div class="box right"></div>
+    </div>
+</body>
+
+</html>
