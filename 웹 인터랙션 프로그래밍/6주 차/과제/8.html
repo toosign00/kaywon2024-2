@@ -1,13 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <svg width="500" height="100">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    </svg>
+        body {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 500px;
+            height: 500px;
+            background: #0C142B;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <svg width="500" height="100">
+            <circle id="circle" r="30" cx="50" cy="50" fill="#1731c3" stroke="red" stroke-width="4" />
+            <animate
+            xlink:href="#circle"
+            attributeName="cx"
+            from="50"
+            to="450"
+            dur="1s"
+            begin="click"
+            fill="freeze"/>
+
+            <animate
+            xlink:href="#circle"
+            attributeName="fill"
+            from="aquamarine"
+            to="hotpink"
+            dur="1s"
+            begin="click"
+            fill="freeze"/>
+
+            <animate
+            xlink:href="#circle"
+            attributeName="stroke"
+            from="red"
+            to="blue"
+            dur="1s"
+            begin="click"
+            fill="freeze"/>
+
+            <animate
+            xlink:href="#circle"
+            attributeName="stroke-width"
+            from="4"
+            to="10"
+            dur="1s"
+            begin="click"
+            fill="freeze"/>
+        </svg>
+
+    </div>
 </body>
+
 </html>
