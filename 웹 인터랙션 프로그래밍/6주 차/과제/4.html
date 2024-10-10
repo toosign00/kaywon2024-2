@@ -13,15 +13,21 @@
 
         ul {
             list-style: none;
+            display: flex;
+            gap: 20px;
         }
 
         #wrap {
             position: absolute;
-            top: 300px;
-            left: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .flip {
+        .flip-wrap {
             position: relative;
             width: 200px;
             height: 300px;
@@ -29,11 +35,11 @@
             transform-style: preserve-3d;
         }
 
-        .flip:hover {
+        .flip-wrap:hover {
             transform: rotateY(180deg);
         }
 
-        .flip>div {
+        .flip-wrap>div {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -43,13 +49,25 @@
             font-size: 3rem;
         }
 
-        .front {
-            background: #ff2f2f;
+        .flip-wrap>.front {
+            background-image: url('./assets/img/front.webp');
+            background-size: cover;
+            backface-visibility: hidden; /* 추가 */
         }
 
-        .back {
-            background: #2facff;
-            transform: rotateY(180deg) translate3d(0, 0, 3px);
+        .flip-wrap>.back {
+            background-image: url('./assets/img/1.webp');
+            background-size: cover;
+            transform: rotateY(180deg);
+            backface-visibility: hidden; /* 추가 */
+        }
+
+        .flip-wrap:nth-child(2) .back {
+            background-image: url('./assets/img/2.webp');
+        }
+
+        .flip-wrap:nth-child(3) .back {
+            background-image: url('./assets/img/3.webp');
         }
     </style>
 </head>
@@ -57,9 +75,17 @@
 <body>
     <div id="wrap">
         <ul>
-            <li class="flip">
-                <div class="front">front</div>
-                <div class="back">back</div>
+            <li class="flip-wrap">
+                <div class="front"></div>
+                <div class="back"></div>
+            </li>
+            <li class="flip-wrap">
+                <div class="front"></div>
+                <div class="back"></div>
+            </li>
+            <li class="flip-wrap">
+                <div class="front"></div>
+                <div class="back"></div>
             </li>
         </ul>
     </div>
