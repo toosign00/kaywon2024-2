@@ -1,1 +1,0 @@
-<p>3주 차 수업에서는 if와 switch, element의 value 값을 가져오기, 배열, forEach와 map 반복문을 복습하였습니다.</p>
