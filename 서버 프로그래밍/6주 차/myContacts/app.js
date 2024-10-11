@@ -8,6 +8,7 @@ const port = 3000;
 dbConnect();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // 요청 시간 미들웨어
 const requestTime = (req, res, next) => {
