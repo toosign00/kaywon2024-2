@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="range">
+    <span class="num">50</span>
+
+    <script>
+        let range = document.querySelector('input[type="range"]');
+        let num = document.querySelector('.num');
+
+        range.addEventListener('change', () => {
+            num.textContent = range.value;
+
+            if (range.value > 50) {
+                document.body.style.backgroundColor = 'pink';
+            } else if (range.value == 50) {
+                document.body.style.backgroundColor = 'white';
+            } else {
+                document.body.style.backgroundColor = 'skyblue';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <svg viewBox="0 0 100 100" width="400" height="400">
+            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="#000">
+                <animate
+                    attributeName="fill"
+                    dur="3000ms"
+                    repeatCount="indefinite"
+                    values="#000;#333;#aaa;#eee"
+                />
+            </path>
+        </svg>
+    </div>
+</body>
+</html>

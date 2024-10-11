@@ -1,0 +1,130 @@
+body {
+    font-family: 'SUIT Variable', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 10px 0 0 0;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    color: white;
+    padding: 5px 15px;
+    display: inline-block;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.btn.red {
+    background: rgba(250, 90, 90, 1);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(250, 90, 90, 1)), to(rgba(232, 81, 81, 1)));
+    background: -webkit-linear-gradient(rgba(250, 90, 90, 1) 0%, rgba(232, 81, 81, 1) 100%);
+    background: -moz-linear-gradient(rgba(250, 90, 90, 1) 0%, rgba(232, 81, 81, 1) 100%);
+    background: -o-linear-gradient(rgba(250, 90, 90, 1) 0%, rgba(232, 81, 81, 1) 100%);
+    background: linear-gradient(rgba(250, 90, 90, 1) 0%, rgba(232, 81, 81, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa5a5a', endColorstr='#e85151', GradientType=0);
+}
+
+.btn.red:active {
+    background: #E35252;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    background-image: url(./img/01.JPG);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+
+.big {
+    width: 400px;
+    height: 400px;
+}
+
+.img-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin: 0px 5px 5px 5px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.img:nth-child(1) {
+    background-image: url(./img/01.JPG);
+}
+
+.img:nth-child(2) {
+    background-image: url(./img/02.JPG);
+}
+
+.img:nth-child(3) {
+    background-image: url(./img/03.JPG);
+}
+
+.img:nth-child(4) {
+    background-image: url(./img/04.JPG);
+}
+
+.img:nth-child(5) {
+    background-image: url(./img/05.JPG);
+}
+
+.img:nth-child(6) {
+    background-image: url(./img/06.JPG);
+}
+
+.img:nth-child(7) {
+    background-image: url(./img/07.JPG);
+}
+
+.img:nth-child(8) {
+    background-image: url(./img/08.JPG);
+}
+
+.img:nth-child(9) {
+    background-image: url(./img/09.JPG);
+}
+
+.img:nth-child(10) {
+    background-image: url(./img/10.JPG);
+}
