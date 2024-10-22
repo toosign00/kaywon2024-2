@@ -1,11 +1,20 @@
 const express = require("express");
 const dbConnect = require("./config/dbConnect");
+const path = require('path');
 
 const app = express();
 
-const port = 3000;
+// EJS 뷰 엔진 설정
+app.set("view engine", "ejs");
+app.set("views", "./views");
 
+// 정적 파일 제공
+app.use(express.static("./public"));
+
+// 데이터베이스 연결
 dbConnect();
+
+const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

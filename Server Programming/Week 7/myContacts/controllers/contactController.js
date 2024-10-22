@@ -1,11 +1,14 @@
 const asyncHandler = require("express-async-handler");
 const Contact = require("../models/contactModel");
+const path = require("path");
+
 
 //@desc Get all contacts
 //@route GET /contacts
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await Contact.find();
-    res.status(200).send(contacts);
+    const filePath = path.join(__dirname, "../views/index.ejs");
+    res.render("index", { contacts: contacts });
 });
 
 //@desc Get all contacts
@@ -41,11 +44,15 @@ const getContact = asyncHandler(async (req, res) => {
         contact = await Contact.findById(param);
     } else {
         // 이름으로 검색
-        contact = await Contact.findOne({ name: param });
+        contact = await Contact.findOne({
+            name: param
+        });
     }
 
     if (!contact) {
-        return res.status(404).json({ message: "Contact not found" }); // 연락처가 없으면 404 응답
+        return res.status(404).json({
+            message: "Contact not found"
+        }); // 연락처가 없으면 404 응답
     }
 
     res.status(200).json(contact); // 연락처 반환
@@ -65,17 +72,27 @@ const updateContact = asyncHandler(async (req, res) => {
             name,
             email,
             phone
-        },
-        { new: true }
+        }, {
+            new: true
+        }
     );
 
     res.status(200).send(updatedContact);
 });
 
-//@desc Get all contacts
+//@desc Delete a contact by ID
 //@route DELETE /contacts/:id
 const deleteContact = asyncHandler(async (req, res) => {
-    res.status(200).send(`Delete Contact for ID : ${req.params.id}`);
+    const contact = await Contact.findByIdAndDelete(req.params.id);
+
+    // Check if the contact exists
+    if (!contact) {
+        res.status(404);
+        throw new Error("Contact not found");
+    }
+
+    // Send success response
+    res.status(200).send(`Deleted Contact with ID: ${req.params.id}`);
 });
 
 module.exports = {
