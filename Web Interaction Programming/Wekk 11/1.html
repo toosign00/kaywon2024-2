@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hover interaction</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .content {
+        width: 100%;
+        height: 100vh;
+        background-image: url(./img/bg.jpg);
+        background-size: cover;
+        filter: brightness(0.08);
+      }
+
+      #highlight {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        backdrop-filter: brightness(8);
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content"></div>
+    <div id="highlight"></div>
+    <script>
+      const highlight = document.getElementById("highlight");
+
+      document.addEventListener("mousemove", (e) => {
+        highlight.style.left = `${e.pageX}px`;
+        highlight.style.top = `${e.pageY}px`;
+      });
+    </script>
+  </body>
+</html>
