@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #canvas {
+        border: 1px solid black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      var ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth - 50;
+      canvas.height = window.innerHeight - 50;
+
+      var rect = {
+        x: 10,
+        y: 50,
+        width: 50,
+        height: 50,
+        draw() {
+          ctx.fillStyle = "red";
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+        },
+      };
+
+      var direction = 1;
+
+      function move() {
+        requestAnimationFrame(move);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        rect.x += 5 * direction;
+
+        if (rect.x >= canvas.width - rect.width || rect.x <= 0) {
+          direction *= -1;
+        }
+
+        rect.draw();
+      }
+
+      move();
+    </script>
+  </body>
+</html>
