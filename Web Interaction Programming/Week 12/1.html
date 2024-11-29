@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      section {
+        height: 100vh;
+      }
+
+      section:nth-of-type(1) {
+        background: #2facff;
+      }
+
+      section:nth-of-type(2) {
+        background: rosybrown;
+        animation: pung 5s ease;
+        /*animation-timeline:scroll();*/
+        animation-timeline: view();
+      }
+
+      section:nth-of-type(3) {
+        background: steelblue;
+        animation: bg 5s ease;
+        animation-timeline: view();
+      }
+
+      section:nth-of-type(4) {
+        background: yellowgreen;
+      }
+
+      @keyframes pung {
+        from {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes bg {
+        from {
+          background: steelblue;
+        }
+
+        to {
+          background: hotpink;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h2>1번</h2>
+    </section>
+    <section>
+      <h2>2번</h2>
+    </section>
+    <section>
+      <h2>3번</h2>
+    </section>
+    <section>
+      <h2>4번</h2>
+    </section>
+
+  </body>
+
+</html>

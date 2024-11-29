@@ -12,18 +12,20 @@ router.get(
       title: "Home",
     };
     const data = await Post.find();
-    res.render("index", {locals, data, layout: mainLayout});
+    res.render("index", { locals, data, layout: mainLayout });
   })
 );
 
-// GET post/:id
+// GET /post/:id
 // 게시물 상세 보기
-
 router.get(
   "/post/:id",
   asynchandler(async (req, res) => {
-    const data = await Post.findOne({_id: req.params.id});
-    res.render("post", {data, layout: mainLayout});
+    const post = await Post.findOne({ _id: req.params.id }); // 데이터를 'post'로 가져옴
+    if (!post) {
+      return res.status(404).send("게시물을 찾을 수 없습니다.");
+    }
+    res.render("post", { post, layout: mainLayout }); // post 객체로 전달
   })
 );
 
