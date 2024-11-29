@@ -1,0 +1,24 @@
+<!-- 상단 소개글, 히어로 이미지 -->
+<div class="top">
+  <h1 class="top-heading">Photo Blog</h1>
+  <p class="top-body">사진에 담긴 추억을 공유하세요..</p>
+</div>
+
+<img src="/img/000446340005_2.jpg" alt="메인이미지" class="hero-image">
+
+<!-- 최근 게시물 -->
+<section class="articles">
+  <h2 class="articles-heading">최근 게시물</h2>
+  <ul class="article-ul">
+    <% data.forEach(post => { %>  <!-- 반복문 시작 -->
+      <li>
+        <a href="/post/<%= post._id %>">
+          <span><%= post.title %></span>
+          <span class="article-list-date">
+            <%= post.createdAt.toDateString() %>
+          </span>
+        </a>
+      </li>
+    <% }) %>  <!-- 반복문 종료 -->
+  </ul>
+</section>
