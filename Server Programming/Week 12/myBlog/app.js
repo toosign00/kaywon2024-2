@@ -3,6 +3,7 @@ const express = require("express");
 const expressEjsLayouts = require("express-ejs-layouts");
 const connectDb = require("./config/db"); // DB 연결 함수 가져오기
 
+
 const app = express();
 const port = process.env.PORT || 3000; // .env에 포트가 없으면 3000번 포트로 설정
 

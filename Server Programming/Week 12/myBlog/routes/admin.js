@@ -3,6 +3,12 @@ const router = express.Router();
 const adminLayout = "layouts/admin";
 const adminLayout2 = "layouts/admin-nologout";
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcrypt");
+const User = require("../models/User");
+const Post = require("../models/post");
+
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // GET /admin
 // 관리자 페이지
@@ -24,12 +30,18 @@ router.get(
 
 // POST /register
 // 회원가입
-router.post(
-  "/register",
-  asyncHandler(async (req, res) => {
-    res.send("회원가입 완료");
-  })
-);
+// router.post(
+//   "/register",
+//   asyncHandler(async (req, res) => {
+//     const hashedPassword = await bcrypt.hash(req.body.password, 10); // 비밀번호 암호화
+//     const user = await User.create({
+//       username: req.body.username,
+//       password: hashedPassword, // 암호화된 비밀번호
+//     });
+
+//     res.json(`user created : ${user}`); // 생성된 유저 정보 출력
+//   })
+// );
 
 // POST /admin
 // 관리차 페이지 로그인

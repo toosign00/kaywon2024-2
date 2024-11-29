@@ -15,10 +15,9 @@ const PostSchema = new mongoose.Schema({
   // 게시물 작성일
   createdAt: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 
-
 // 모델 생성
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.models.Post || mongoose.model("Post", PostSchema);
