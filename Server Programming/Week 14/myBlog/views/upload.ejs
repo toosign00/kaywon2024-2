@@ -1,0 +1,60 @@
+<div class="upload-container">
+  <div class="upload-header">
+    <h2 class="upload-title">새 게시물 작성</h2>
+  </div>
+  <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+    <!-- 제목 입력 -->
+    <div class="form-group">
+      <label for="title">제목</label>
+      <input type="text" id="title" name="title" required placeholder="제목을 입력하세요" class="form-input">
+    </div>
+    <!-- 본문 입력 -->
+    <div class="form-group">
+      <label for="body">본문</label>
+      <textarea id="body" name="body" rows="10" required placeholder="내용을 입력하세요" class="form-input"></textarea>
+    </div>
+    <!-- 이미지 업로드 -->
+    <div class="form-group">
+      <label for="image">사진</label>
+      <div class="file-upload">
+        <input type="file" id="image" name="image" accept="image/*" class="file-input" onchange="previewImage(event)">
+        <small class="upload-guide">지원 형식: JPG, PNG, GIF (최대 5MB)</small>
+        <!-- 썸네일 프리뷰 영역 추가 -->
+        <div id="imagePreview" class="image-preview"></div>
+      </div>
+    </div>
+    <!-- 제출 버튼 -->
+    <div class="form-actions">
+      <button type="submit" class="submit-btn">작성하기</button>
+      <a href="/" class="cancel-btn">취소</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  function previewImage(event) {
+    const preview = document.getElementById('imagePreview');
+    const file = event.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        // 기존 이미지가 있다면 제거
+        preview.innerHTML = '';
+
+        // 새 이미지 생성 및 추가
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        preview.appendChild(img);
+        preview.classList.add('has-image');
+      }
+
+      reader.readAsDataURL(file);
+    } else {
+      // 파일 선택이 취소된 경우
+      preview.innerHTML = '';
+      preview.classList.remove('has-image');
+    }
+  }
+</script>

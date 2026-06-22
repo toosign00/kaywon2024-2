@@ -1,0 +1,470 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+  --white-bg: #FDFFF6;
+  --white-text: #ffffff;
+  --black: #1a1a1a;
+  --primary-color: #472918;
+  --gray: #7E7E7E;
+  --gray-light: #E4E4E4;
+  --red: #b30000;
+  --font-size-base: 1rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --border-radius: 10px;
+}
+
+body {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: var(--black);
+  font-size: var(--font-size-base);
+  background-color: var(--white-bg);
+  margin: 0;
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 1rem;
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--white-bg);
+  width: 100%;
+  padding: 0.7rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--black);
+}
+
+.btn {
+  background-color: var(--white-bg);
+  color: var(--black);
+  border: 1px solid var(--black);
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-bg);
+}
+
+.btn-delete {
+  padding: 10px 16px;
+  background-color: var(--white-bg);
+}
+
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* 레이아웃 */
+.container {
+  max-width: 982px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.main {
+  padding: 20px 0;
+}
+
+/* 히어로 이미지 표시 부분 */
+.hero-image {
+  max-height: 528px;
+  filter: drop-shadow(0px 44px 34px rgba(0, 0, 0, 0.25));
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+
+/* 메인 헤더 */
+.header {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "logo button"
+    "menu menu";
+  padding-top: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      "logo menu button";
+  }
+}
+
+.header-logo {
+  font-weight: 800;
+  font-size: 25px;
+  text-decoration: none;
+  grid-area: logo;
+}
+
+.header-logo:hover {
+  text-decoration: underline;
+}
+
+.header-nav {
+  justify-content: center;
+  display: flex;
+  grid-area: menu;
+}
+
+.header-logo,
+.header-nav,
+.header-button {
+  width: 100%;
+}
+
+.header-button {
+  display: flex;
+  justify-content: end;
+  grid-area: button;
+}
+
+.header-button button {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  border: 0;
+  padding: 6px 12px;
+  background: none;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.header-button button:hover {
+  border: 2px solid var(--black);
+}
+
+/* 헤더의 내비게이션 */
+.header-nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.header-nav ul a {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.header-nav ul a.active {
+  color: rgb(126, 126, 126);
+}
+
+.header-nav ul a:hover {
+  text-decoration: underline;
+}
+
+/* 상단 텍스트 - HomePage */
+.top {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.top-heading {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.top-body {
+  font-size: var(--font-size-md);
+  margin: 5px 0 40px 0;
+}
+
+
+/* 게시물 목록 */
+.articles-heading {
+  margin-top: 4rem;
+  font-weight: 400;
+}
+
+.article-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.article-list-date {
+  font-size: 1rem;
+  color: var(--gray);
+  width: 100px;
+  display: inline-block;
+  width: 260px;
+}
+
+.article-ul li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 18px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .article-ul li a {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .article-list-date {
+    text-align: right;
+  }
+}
+
+.article-ul li {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.article-ul li:not(:last-child) {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.article {
+  white-space: pre-wrap;
+}
+
+.pagination {
+  font-size: 1.3rem;
+  color: var(--gray);
+  text-decoration: none;
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.pagination:hover {
+  color: var(--black);
+}
+
+
+/* 푸터 */
+.footer {
+  margin: 4rem;
+  text-align: center;
+}
+
+
+/* 관리자 화면 대시보드 */
+.admin-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-posts {
+  padding: 0;
+  margin: 0;
+}
+
+.admin-post-controls form {
+  display: inline-block;
+}
+
+.admin-post-controls .btn {
+  display: inline-block;
+  background-color: var(--white-bg);
+  color: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 0.8rem;
+  text-decoration: none;
+  font-size: .8rem;
+  padding: 4px 8px;
+  line-height: 2;
+  transition: background 0.3s, color 0.3s ease-in-out;
+}
+
+.admin-post-controls .btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-bg);
+}
+
+.admin-posts li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.upload-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.upload-header {
+  margin-bottom: 2rem;
+}
+
+.upload-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.file-upload {
+  margin-top: 0.5rem;
+}
+
+.upload-guide {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-btn,
+.cancel-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit-btn {
+  background-color: #f8f9fa;
+  color: var(--black);
+  border: 1px solid #ddd;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-text);
+}
+
+.cancel-btn {
+  background-color: #f8f9fa;
+  color: var(--black);
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.cancel-btn:hover {
+  background-color: var(--primary-color);
+  color: var(--white-text);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .upload-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .submit-btn,
+  .cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.image-preview {
+  max-width: 30%;
+  margin-top: 10px;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-preview.has-image {
+  border: none;
+}
+
+.post-image {
+  margin: 2rem 0;
+  max-width: 50%;
+}
+
+.post-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.back--link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--gray);
+}

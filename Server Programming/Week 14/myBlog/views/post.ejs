@@ -1,0 +1,14 @@
+<h1><%= post.title %></h1>
+<p>작성일: <%= post.createdAt.toDateString() %></p>
+
+<% if (post.image) { %>
+  <div class="post-image">
+    <img src="<%= post.image %>" alt="<%= post.title %>" />
+  </div>
+<% } %>
+
+<article class="article">
+  <%= post.body %>
+</article>
+
+<a href="/home" class="back--link">← 뒤로가기</a>

@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
 :root {
+  --white-text: #ffffff;
+  --black: #1a1a1a;
+  --primary-color: #472918;
   --black: #1c1c1c;
   --gray: #7E7E7E;
   --gray-light: #E4E4E4;
@@ -20,10 +23,21 @@ body {
   margin: 0;
 }
 
-a { color: var(--black); }
-h1 { font-size: var(--font-size-xl); }
-h2 { font-size: var(--font-size-lg); }
-h3 { font-size: var(--font-size-md); }
+a {
+  color: var(--black);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
 
 input[type="text"],
 input[type="email"],
@@ -43,10 +57,10 @@ textarea {
 .btn {
   background-color: var(--black);
   border: none;
-  color: white; 
+  color: white;
   padding: 16px 32px;
   text-decoration: none;
-  margin: 4px 2px; 
+  margin: 4px 2px;
   cursor: pointer;
 }
 
@@ -87,17 +101,17 @@ img {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  "logo button"
-  "menu menu";
+  grid-template-areas:
+    "logo button"
+    "menu menu";
   padding-top: 10px;
 }
 
 @media only screen and (min-width: 768px) {
   .header {
     grid-template-columns: auto 1fr auto;
-    grid-template-areas: 
-    "logo menu button";
+    grid-template-areas:
+      "logo menu button";
   }
 }
 
@@ -118,7 +132,9 @@ img {
   grid-area: menu;
 }
 
-.header-logo, .header-nav, .header-button {
+.header-logo,
+.header-nav,
+.header-button {
   width: 100%;
 }
 
@@ -276,7 +292,7 @@ img {
   display: inline-block;
 }
 
-.admin-post-controls .btn  {
+.admin-post-controls .btn {
   display: inline-block;
   background-color: var(--black);
   color: var(--gray-light);
@@ -292,4 +308,3 @@ img {
   justify-content: space-between;
   padding: 10px 0;
 }
-
